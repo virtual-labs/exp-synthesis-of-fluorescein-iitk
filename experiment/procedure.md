@@ -1,17 +1,17 @@
 <b>Apparatus</b><br>
-A.	50 ml round bottom flask and a beaker
-B.	A dropper 
-C.	A magnetic stirrer with a heater
-D.	A magnetic bead
+A.	50 ml round bottom flask and a beaker<br>
+B.	A dropper <br>
+C.	A magnetic stirrer with a heater<br>
+D.	A magnetic bead<br>
 E.	A condenser for reflux
 <br>
 <br>
 
 <b>Chemicals</b><br>
-A.	0.5g phthalic anhydride
-B.	0.75 g of resorcinol.
-C.	Conc. H2SO4
-D.	Distilled water
+A.	0.5g phthalic anhydride<br>
+B.	0.75 g of resorcinol.<br>
+C.	Conc. H2SO4<br>
+D.	Distilled water<br>
 E.	Ammonia solution (5ml)
 <br>
 <br>
