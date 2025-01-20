@@ -2,12 +2,63 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What type of reaction is involved in the preparation of fluorescein?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Friedel-Crafts acylation",
+        "b": "Esterification",
+        "c": "Hydrolysis",
+        "d": "Condensation reaction"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which catalyst is commonly used in the synthesis of fluorescein?",
+      "answers": {
+        "a": "Sodium hydroxide",
+        "b": "Concentrated sulfuric acid",
+        "c": "Anhydrous aluminum chloride",
+        "d": "Zinc chloride"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the solvent used during the preparation of fluorescein?",
+      "answers": {
+        "a": "Alcohol",
+        "b": "Reaction occurs at molten state",
+        "c": "Ether",
+        "d": "Water"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The reaction for fluorescein preparation is conducted at approximately?",
+      "answers": {
+        "a": "150–200°C",
+        "b": "100–120°C",
+        "c": "50–80°C",
+        "d": "Room temperature"
       },
       "explanations": {
         "a": "Explanation 1  <a href='www.google.com'>here</a>",
@@ -19,12 +70,12 @@
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "In ethanolic solution fluorescein emits at",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "520 nm",
+        "b": "430 nm",
+        "c": "630 nm",
+        "d": "330 nm"
       },
       "explanations": {
         "a": "Explanation 1  <a href='www.google.com'>here</a>",
@@ -32,7 +83,7 @@
         "c": "Explanation 2",
         "d": "Explanation 2"
       },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
