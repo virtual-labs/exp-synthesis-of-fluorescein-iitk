@@ -1,1 +1,1 @@
-### Laboratory preparation of fluorescein and its spectroscopy
+Laboratory preparation of fluorescein and its spectroscopy
