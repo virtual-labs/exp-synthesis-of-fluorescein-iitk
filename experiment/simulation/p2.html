@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fluorescein Synthesis Lab</title>
+    <link rel="stylesheet" href="css\style copy.css" />
+    <link rel="stylesheet" href="css\extra.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="header">
+        <h1>Synthesis of Fluorescein and its Spectroscopy</h1>
+      </div>
+
+      <div class="content">
+        <!-- Lab Area -->
+        <div class="lab-area">
+          <div class="lab-table">
+            <img id="phthalicDose" src="new fold\res.png" class="dose-img" />
+            <img
+              id="resorcinolDose"
+              src="new fold\resorcinol.png"
+              class="dose-img"
+            />
+            <img
+              id="acidObject"
+              src="new fold/dropper.png"
+              class="acid-up-left-img"
+            />
+            <img
+              id="waterObject"
+              src="new fold\10ml tube.png"
+              class="water-up-left-img"
+            />
+            <img
+              id="ammoniaObject"
+              src="new fold\5ml tube.png"
+              class="ammonia-move-img"
+            />
+            <img
+              id="magBeadObj"
+              class="mag-bead-fly-img"
+              src="new fold/beed.png"
+              alt="Magnetic Bead Animation"
+            />
+            <img
+              id="acidObject2"
+              src="new fold\reflask.png"
+              class="acid-right-img"
+              alt="Acid Droplet Moving Right"
+            />
+
+            <img
+              id="heatAnim"
+              src="new fold\red (2).png"
+              class="heat-move-img"
+              alt="Heating Move Animation"
+            />
+            <!-- Step 8 Animation Images -->
+            <img
+              id="pourSlideImg"
+              src="new fold\brown beaker.png "
+              class="step8-img hidden"
+            />
+
+            <img
+              id="transitionDiagonalImg"
+              src="new fold\10ml tube.png"
+              class="step8-img1 hidden"
+            />
+
+            <div class="equipment scale" id="scale">
+              <div class="scale-display">0.00 g</div>
+              <div class="scale-plate"></div>
+              <div class="scale-base"></div>
+              <span class="tooltip">Digital Weighing Scale</span>
+            </div>
+
+            <!-- flask -->
+            <div class="extra-item">
+              <img id="extraImg1" src="new fold/empty.png" class="extra-img" />
+              <img
+                id="extraImg2"
+                src="new fold/ph.png"
+                class="extra-img hidden"
+              />
+              <img
+                id="extraImg3"
+                src="new fold/red.png"
+                class="extra-img hidden"
+              />
+              <img
+                id="extraImg4"
+                src="new fold/reflask.png"
+                class="extra-img hidden"
+              />
+
+              <span class="tooltip small-tooltip">Round Conical Flask</span>
+            </div>
+
+            <!-- Heating Setup -->
+            <div class="equipment heating-setup" id="heatingSetup">
+              <!-- STATIC FLASK IMAGES -->
+              <img
+                id="flaskImg1"
+                src="new fold\Empty stand.png"
+                class="flask-stage"
+              />
+              <img
+                id="flaskImg2"
+                src="new fold\green stand.png"
+                class="flask-stage hidden"
+              />
+              <img
+                id="flaskImg3"
+                src="new fold\yellow liqid.png"
+                class="flask-stage hidden"
+              />
+              <img
+                id="flaskImg4"
+                src="new fold\Empty stand.png"
+                class="flask-stage hidden"
+              />
+
+              <span class="tooltip"
+                >Heating Mantle with Round Bottom Flask</span
+              >
+            </div>
+
+            <div class="brown-item">
+              <img id="brownImg" src="new fold\red (2).png" class="brown-img" />
+              <span id="brownLabel" class="tooltip small-tooltip"
+                >Brown Liquid</span
+              >
+            </div>
+
+            <!-- fluosceene -->
+            <div class="greenYellow-item">
+              <img
+                id="greenYellowImg"
+                src="new fold\beaker.png"
+                class="greenYellow-img"
+              />
+              <span class="tooltip small-tooltip"
+                >Green-Yellow Intermediate</span
+              >
+            </div>
+
+            <!-- Dropper -->
+            <div class="equipment dropper" id="dropper">
+              <img
+                src="new fold\solid fluro.png"
+                class="dropper-img"
+                alt="Dropper"
+              />
+              <span class="tooltip">Dark Red Pure Solid Fluorescein</span>
+            </div>
+          </div>
+
+          <!-- Chemical Bottles -->
+          <div class="chemicals-shelf">
+            <div class="chemical-bottle" id="bead" data-chemical="bead">
+              <img
+                style="height: 30%"
+                class="chemical-img"
+                src="new fold\beed.png"
+                alt="Magnetic Bead Bottle"
+              />
+              <div class="bottle-label">
+                <span class="chemical-name">Magnetic Bead</span>
+                <span class="chemical-amount">1 piece</span>
+              </div>
+            </div>
+            <div class="chemical-bottle" id="phthalic" data-chemical="phthalic">
+              <img
+                style="height: 40%"
+                class="chemical-img"
+                src="new fold\anhydride (1).png"
+                alt="Phthalic Anhydride Bottle"
+              />
+              <div class="bottle-label">
+                <span class="chemical-name">Phthalic Anhydride</span>
+                <span class="chemical-amount">0.5g</span>
+              </div>
+            </div>
+
+            <div
+              class="chemical-bottle"
+              id="resorcinol"
+              data-chemical="resorcinol"
+            >
+              <img
+                style="height: 40%"
+                class="chemical-img"
+                src="new fold\reso.png"
+                alt="Resorcinol Bottle"
+              />
+              <div class="bottle-label">
+                <span class="chemical-name">Resorcinol</span>
+                <span class="chemical-amount">0.75g</span>
+              </div>
+            </div>
+
+            <div class="chemical-bottle" id="h2so4" data-chemical="h2so4">
+              <img
+                class="chemical-img"
+                src="new fold\h2so4.png"
+                alt="Conc. H₂SO₄ Bottle"
+              />
+              <div class="bottle-label">
+                <span class="chemical-name">Conc. H₂SO₄</span>
+                <span class="chemical-amount">2-3 drops</span>
+              </div>
+            </div>
+
+            <div class="chemical-bottle" id="water" data-chemical="water">
+              <img
+                class="chemical-img"
+                src="new fold\distilled water.png"
+                alt="Distilled Water Bottle"
+              />
+              <div class="bottle-label">
+                <span class="chemical-name">Distilled Water</span>
+                <span class="chemical-amount">10ml</span>
+              </div>
+            </div>
+
+            <div class="chemical-bottle" id="ammonia" data-chemical="ammonia">
+              <img
+                style="height: 40%"
+                class="chemical-img"
+                src="new fold\Untitled (8).png"
+                alt="Ammonia Solution Bottle"
+              />
+              <div class="bottle-label">
+                <span class="chemical-name">Ammonia Solution</span>
+                <span class="chemical-amount">5ml</span>
+              </div>
+            </div>
+
+            <!-- Step 8 : Pour into Water -->
+            <div
+              class="chemical-bottle"
+              id="waterPour"
+              data-chemical="waterPour"
+            >
+              <img
+                style="height: 40%"
+                class="chemical-img"
+                src="new fold/distilled water.png"
+                alt="Pour Into Water"
+              />
+              <div class="bottle-label">
+                <span class="chemical-name">Pour into Water</span>
+              </div>
+            </div>
+
+            <!-- Step 9 : Column Chromatography -->
+            <div
+              class="chemical-bottle"
+              id="columnChromo"
+              data-chemical="columnChromo"
+            >
+              <img
+                style="height: 40%"
+                class="chemical-img"
+                src="new fold/Untitled (8).png"
+                alt="Column Chromatography"
+              />
+              <div class="bottle-label">
+                <span class="chemical-name">Column Chromatography</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instructions Panel -->
+        <div class="instructions-panel">
+          <div class="step-indicator">
+            <div class="step" data-step="1"><span>1</span></div>
+            <div class="step" data-step="2"><span>2</span></div>
+            <div class="step" data-step="3"><span>3</span></div>
+            <div class="step" data-step="4"><span>4</span></div>
+            <div class="step" data-step="5"><span>5</span></div>
+            <div class="step" data-step="6"><span>6</span></div>
+            <div class="step" data-step="7"><span>7</span></div>
+            <div class="step" data-step="8"><span>8</span></div>
+            <div class="step" data-step="9"><span>9</span></div>
+            <div class="step" data-step="10"><span>10</span></div>
+            <div class="step" data-step="11"><span>11</span></div>
+          </div>
+
+          <div class="instruction-card">
+            <h2 id="stepTitle">Welcome</h2>
+            <p id="stepInstruction">
+              Click Start to begin the fluorescein synthesis experiment.
+            </p>
+            <div class="action-hint" id="actionHint"></div>
+          </div>
+
+          <div class="controls">
+            <button id="voiceBtn" class="btn btn-voice" title="Toggle Voice">
+              🔊
+            </button>
+            <button id="resetBtn" class="btn btn-reset">Reset</button>
+            <button id="nextBtn" class="btn btn-next">Start</button>
+          </div>
+
+          <div class="observation-panel" id="observationPanel">
+            <h3>Observations</h3>
+            <ul id="observationList"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="Jsnew\script.js"></script>
+  </body>
+</html>

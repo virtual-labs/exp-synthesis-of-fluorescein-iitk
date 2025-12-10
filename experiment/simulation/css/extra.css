@@ -1,0 +1,273 @@
+.extra-item {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 10px;
+}
+.extra-img {
+    width: 80px;
+    height: 20vh;
+    cursor: pointer;
+    z-index: 3000;
+    transition: transform 0.25s ease;
+}
+
+.extra-img:hover {
+    transform: scale(1.1); /* Slight increase */
+}
+
+
+
+.small-tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    border: 1px solid var(--surface-light);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    z-index: 4000;
+}
+
+.extra-item:hover .small-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: 125%;
+}
+
+/* Red solid flou */
+.dropper-img {
+    width: 80px;
+    height: 11vh;
+    padding: 0px;
+    margin: 0px;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Hover zoom like other instruments */
+.dropper:hover .dropper-img {
+    transform: translateY(-5px) scale(1.05);
+}
+/* 
+fluroscene */
+
+.greenYellow-item {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 10px;
+}
+
+.greenYellow-img {
+    width: 9vw;
+    height: 15vh;
+    cursor: pointer;
+    z-index: 3000;
+    transition: transform 0.25s ease;
+}
+
+.greenYellow-img:hover {
+    transform: scale(1.1);
+}
+
+.greenYellow-item:hover .small-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: 135%;
+}
+
+
+/* brown */
+
+.brown-item {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 10px;
+}
+
+.brown-img {
+    width: 70px;
+    cursor: pointer;
+    z-index: 3000;
+    transition: transform 0.25s ease;
+}
+
+.brown-img:hover {
+    transform: scale(1.1);
+}
+
+.brown-item:hover .small-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: 135%;
+}
+.hidden {
+  display: none;
+}
+
+
+.clickable-highlight img {
+    animation: pulseOutline 1.2s infinite;
+    cursor: pointer;
+}
+
+@keyframes pulseOutline {
+    0%,100% { filter: drop-shadow(0 0 8px #ffaa00); }
+    50% { filter: drop-shadow(0 0 20px #ff0000); }
+}
+
+
+
+/* wtaer mix glow */
+.glow-green {
+    animation: greenGlow 1.6s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 25px #00ff2f);
+}
+
+@keyframes greenGlow {
+    0% { filter: drop-shadow(0 0 18px #00ff2f); }
+    100% { filter: drop-shadow(0 0 40px #39ff14); }
+}
+/* 
+step 8 */
+/* Brown beaker horizontal slide */
+.brown-slide-right {
+  animation: moveRightBezier 1s ease-out forwards;
+}
+
+@keyframes moveRightBezier {
+  0% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+
+
+
+/* Diagonal ( / ) movement */
+.step8-img {
+    position: absolute;
+    width: 70px;        /* Adjust if needed */
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2100;
+    top: 0;
+    left: 0;
+}
+.step8-img1 {
+    position: absolute;
+    width: 30px;        /* Adjust if needed */
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2100;
+    top: 0;
+    left: 0;
+}
+/* Horizontal movement */
+.slide-right {
+  animation: slideRight 1.2s ease-out forwards;
+}
+
+@keyframes slideRighti {
+  0% {
+  
+    transform: translate(var(--sr-start-x), var(--sr-start-y));
+  }
+  100% {
+   
+    transform: translate(var(--sr-end-x), var(--sr-end-y));
+  }
+}
+
+/* Diagonal movement */
+.move-diagonal {
+  animation: moveDiagonal 1.2s ease-out forwards;
+}
+
+@keyframes moveDiagonali {
+  0% {
+   
+    transform: translate(var(--dg-start-x), var(--dg-start-y));
+  }
+  100% {
+   
+    transform: translate(var(--dg-end-x), var(--dg-end-y));
+  }
+}
+
+
+/* Bright green glowing fluorescence effect */
+/* UV spotlight effect */
+/* Neon UV light background behind Green-Yellow Intermediate div */
+.greenYellow-item.uv-on {
+  position: relative;
+  padding: 12px;
+  border-radius: 14px;
+  background: radial-gradient(circle,
+    rgba(0, 255, 100, 0.38) 0%,
+    rgba(0, 70, 120, 0.7) 45%,
+    rgba(0, 20, 40, 1) 90%
+  );
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.7),
+              0 0 60px rgba(0, 255, 100, 0.5),
+              0 0 120px rgba(0, 255, 100, 0.4);
+  animation: uvPulse2 2.4s infinite alternate ease-in-out;
+}
+
+@keyframes uvPulse2 {
+  0% { box-shadow: 0 0 15px rgba(0,255,100,0.4); }
+  100% { box-shadow: 0 0 70px rgba(0,255,100,0.8); }
+}
+
+/* Fluorescent glow ONLY behind the liquid in beaker */
+#greenYellowImg.glow-on {
+  filter: drop-shadow(0 0 12px #00ff5e)
+          drop-shadow(0 0 35px #00ff5e)
+          drop-shadow(0 0 70px #00ff5e);
+  animation: glowFade2 1.6s infinite alternate ease-in-out;
+}
+
+@keyframes glowFade2 {
+  0% { filter: drop-shadow(0 0 10px #00ff5e); }
+  100% { filter: drop-shadow(0 0 55px #00ff5e); }
+}
+
+/* next button */
+/* Fluorescent Yellow Glow ONLY when clickable */
+#nextBtn.glow-next {
+  background: #ffc107 !important; /* Override gradient */
+  border: 3px solid #fff176 !important;
+  box-shadow:
+    0 0 20px #ffeb3b,
+    0 0 50px #ffee66,
+    0 0 80px #fff176,
+    0 0 120px rgba(255, 255, 150, 0.9) !important;
+  animation: glowPulseStrong 1.2s infinite alternate ease-in-out !important;
+}
+
+@keyframes glowPulseStrong {
+  0% {
+    box-shadow:
+      0 0 10px #ffee55,
+      0 0 30px #ffee99;
+  }
+  100% {
+    box-shadow:
+      0 0 25px #ffeb3b,
+      0 0 80px #fff176;
+  }
+}

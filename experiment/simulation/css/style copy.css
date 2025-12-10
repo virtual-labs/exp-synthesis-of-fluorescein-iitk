@@ -1,0 +1,915 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2d5a27;
+    --primary-light: #4a8f42;
+    --secondary: #1a365d;
+    --background: #5d717a;
+    --surface: #1e293b;
+    --surface-light: #17242a;
+    --text: #f1f5f9;
+    --text-muted: #d79027;
+    --accent: #fbbf24;
+    --danger: #ef4444;
+    --success: #22c55e;
+    --fluorescein: #39ff14;
+    --chemical-phthalic: #f5f5dc;
+    --chemical-resorcinol: #ffe4e1;
+    --chemical-acid: rgba(255,255,255,0.3);
+    --chemical-water: rgba(135,206,235,0.5);
+    --chemical-ammonia: rgba(230,230,250,0.7);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--background) 0%, #1a202c 100%);
+    color: var(--text);
+   
+    min-height: 100vh;
+}
+
+.main {
+    max-width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+     text-align: center;
+    width: 99.9vw;
+
+  
+    height: 10vh;
+    background: #17242a;
+    padding-top: 2vh ;
+    
+    border-bottom: 2px solid var(--surface-light);
+    margin-bottom: 20px; 
+    
+}
+
+.header h1 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--fluorescein) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+}
+
+/* Lab Area */
+.lab-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lab-table {
+    background: linear-gradient(180deg, var(--surface) 0%, #2a3a4d 100%);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    border: 1px solid var(--surface-light);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    /* background-image: url('images\Table.png'); */
+}
+
+.lab-table::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: #5d4e37;
+    border-radius: 0 0 16px 16px;
+}
+
+/* Equipment Styles */
+.equipment {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.equipment:hover {
+    transform: translateY(-5px);
+}
+
+.equipment .tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--surface-light);
+    z-index: 100;
+}
+
+.equipment:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 10px);
+}
+
+/* Weighing Scale */
+.scale {
+    width: 120px;
+}
+
+.scale-display {
+    background: #1a1a2e;
+    color: var(--fluorescein);
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 5px;
+    border: 2px solid #333;
+}
+
+.scale-plate {
+    width: 100px;
+    height: 8px;
+    background: linear-gradient(180deg, #888 0%, #666 100%);
+    border-radius: 4px;
+    margin: 0 auto 5px;
+}
+
+.scale-base {
+    width: 120px;
+    height: 25px;
+    background: linear-gradient(180deg, #555 0%, #333 100%);
+    border-radius: 4px;
+}
+
+.scale.active .scale-display {
+    animation: scaleWeigh 2s ease-in-out;
+}
+
+@keyframes scaleWeigh {
+    0% { content: '0.00 g'; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Heating Setup */
+.heating-setup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heating-mantle {
+    width: 140px;
+    height: 60px;
+    position: relative;
+}
+
+.mantle-body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #444 0%, #222 100%);
+    border-radius: 10px 10px 20px 20px;
+    border: 2px solid #555;
+}
+
+.mantle-glow {
+    position: absolute;
+    inset: 5px;
+    background: transparent;
+    border-radius: 8px 8px 18px 18px;
+    transition: all 0.5s ease;
+}
+
+.heating-mantle.active .mantle-glow {
+    background: radial-gradient(ellipse at center, rgba(255,100,50,0.8) 0%, rgba(255,50,0,0.4) 50%, transparent 70%);
+    animation: heatPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes heatPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.flask-holder {
+    margin-top: -30px;
+    z-index: 10;
+}
+
+/* Flask */
+.flask {
+    position: relative;
+    width: 100px;
+}
+
+.flask-neck {
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(90deg, rgba(200,220,255,0.3) 0%, rgba(255,255,255,0.4) 50%, rgba(200,220,255,0.3) 100%);
+    margin: 0 auto;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+}
+
+.flask-body {
+    width: 100px;
+    height: 80px;
+    background: linear-gradient(90deg, rgba(200,220,255,0.2) 0%, rgba(255,255,255,0.3) 50%, rgba(200,220,255,0.2) 100%);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.flask-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: 0%;
+    border-radius: 0 0 50% 50%;
+    transition: all 0.8s ease;
+}
+
+.magnetic-bead {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 8px;
+    background: linear-gradient(180deg, #666 0%, #333 100%);
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.magnetic-bead.visible {
+    opacity: 1;
+}
+
+.magnetic-bead.spinning {
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
+}
+
+.bubbles {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    height: 60%;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: bubbleRise 1.5s ease-in-out infinite;
+}
+
+@keyframes bubbleRise {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-50px) scale(0.5); opacity: 0; }
+}
+
+/* Beaker */
+.beaker {
+    width: 80px;
+}
+
+.beaker-body {
+    width: 80px;
+    height: 100px;
+    background: linear-gradient(90deg, rgba(200,220,255,0.2) 0%, rgba(255,255,255,0.3) 50%, rgba(200,220,255,0.2) 100%);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.beaker-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -5px;
+    width: 20px;
+    height: 15px;
+    background: linear-gradient(90deg, rgba(200,220,255,0.2) 0%, rgba(255,255,255,0.3) 100%);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-bottom: none;
+    transform: skewX(-20deg);
+}
+
+.beaker-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0%;
+    transition: all 0.8s ease;
+}
+
+/* Dropper */
+.dropper {
+    width: 30px;
+}
+
+.dropper-bulb {
+    width: 30px;
+    height: 25px;
+    background: linear-gradient(180deg, #444 0%, #222 100%);
+    border-radius: 50% 50% 30% 30%;
+}
+
+.dropper-tube {
+    width: 8px;
+    height: 50px;
+    background: linear-gradient(90deg, rgba(200,220,255,0.3) 0%, rgba(255,255,255,0.4) 50%, rgba(200,220,255,0.3) 100%);
+    margin: 0 auto;
+    border-radius: 0 0 2px 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dropper-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0%;
+    transition: all 0.3s ease;
+}
+
+.dropper.dropping .dropper-liquid::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: inherit;
+    border-radius: 50%;
+    animation: dropFall 0.5s ease-in infinite;
+}
+
+@keyframes dropFall {
+    0% { bottom: 0; opacity: 1; }
+    100% { bottom: -40px; opacity: 0; }
+}
+
+/* Chemical Bottles Shelf */
+.chemicals-shelf {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--surface-light);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chemical-bottle {
+    width: 80px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.chemical-bottle:hover {
+    transform: translateY(-5px);
+}
+
+.chemical-bottle.active {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.chemical-bottle.used {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.chemical-bottle.highlight {
+    animation: pulseHighlight 1s ease-in-out infinite;
+}
+
+@keyframes pulseHighlight {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4); }
+    50% { box-shadow: 0 0 20px 10px rgba(251, 191, 36, 0.2); }
+}
+
+.bottle-body {
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(90deg, rgba(200,220,255,0.2) 0%, rgba(255,255,255,0.3) 50%, rgba(200,220,255,0.2) 100%);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 5px 5px 10px 10px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.bottle-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70%;
+}
+
+.bottle-cap {
+    width: 30px;
+    height: 15px;
+    background: linear-gradient(180deg, #666 0%, #444 100%);
+    margin: 0 auto;
+    border-radius: 3px 3px 0 0;
+    margin-bottom: -2px;
+    position: relative;
+    z-index: 1;
+}
+
+.bottle-label {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.chemical-name {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text);
+    line-height: 1.2;
+}
+
+.chemical-amount {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.bead-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.bead-item {
+    width: 20px;
+    height: 10px;
+    background: linear-gradient(180deg, #888 0%, #444 100%);
+    border-radius: 5px;
+}
+
+/* Instructions Panel */
+.instructions-panel {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 0px;
+    margin-right: 10px;
+    border: 1px solid var(--surface-light);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.step {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.step.active {
+    background: var(--primary);
+    border-color: var(--primary-light);
+    transform: scale(1.1);
+}
+
+.step.completed {
+    background: var(--success);
+    color: white;
+}
+
+.instruction-card {
+    background: var(--background);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--surface-light);
+}
+
+.instruction-card h2 {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.instruction-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.action-hint {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(251, 191, 36, 0.1);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--accent);
+    display: none;
+}
+
+.action-hint.visible {
+    display: block;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-next {
+    flex: 1;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+}
+
+.btn-next:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(74, 143, 66, 0.3);
+}
+
+.btn-next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-reset {
+    background: var(--surface-light);
+    color: var(--text);
+}
+
+.btn-reset:hover {
+    background: #475569;
+}
+
+.btn-voice {
+    width: 48px;
+    background: var(--surface-light);
+    font-size: 1.2rem;
+}
+
+.btn-voice.muted {
+    opacity: 0.5;
+}
+
+.observation-panel {
+    background: var(--background);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--surface-light);
+    display: none;
+}
+
+.observation-panel.visible {
+    display: block;
+}
+
+.observation-panel h3 {
+    font-size: 0.95rem;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.observation-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.observation-panel li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--surface-light);
+
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Flask Glow Effect */
+.flask.glowing .flask-body {
+    box-shadow: 0 0 30px 10px rgba(57, 255, 20, 0.5);
+}
+
+.flask.glowing .flask-liquid {
+    animation: fluoresceinGlow 2s ease-in-out infinite;
+}
+
+@keyframes fluoresceinGlow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+}
+
+/* Pouring Animation */
+.pouring {
+    animation: pour 1.5s ease-in-out;
+}
+
+@keyframes pour {
+    0% { transform: rotate(0deg); }
+    30% { transform: rotate(-45deg) translateX(-20px); }
+    70% { transform: rotate(-45deg) translateX(-20px); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+    
+    .instructions-panel {
+        position: static;
+    }
+}
+.chemical-img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.chemical-bottle:hover .chemical-img {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.flask-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+
+
+
+/* animayion oe */
+/* First movement: Bottle → Scale */
+@keyframes moveToScale {
+    0% { transform: translate(var(--x-start), var(--y-start)); opacity: 1; }
+    100% { transform: translate(var(--x-mid), var(--y-mid)); opacity: 1; }
+}
+
+
+/* Second movement: Scale → Right */
+@keyframes moveRight {
+    from { transform: translate(var(--x-mid), var(--y-mid)); opacity: 1; }
+    to { transform: translate(var(--x-end), var(--y-end)); opacity: 1; }
+}
+
+.dose-img {
+    position: absolute;
+    width: 45px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* h2so4 dropper */
+.acid-up-left-img {
+    position: absolute;
+    width: 45px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1500;
+    top: 0;
+    left: 0; /* required base reference */
+}
+
+
+@keyframes acidUpLeft {
+    0% {
+        opacity: 1;
+        transform: translate(var(--x-start), var(--y-start));
+    }
+    100% {
+        opacity: 1;
+        transform: translate(var(--x-end), var(--y-end));
+    }
+}
+.acid-right-img {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1550;
+    top: 0;
+    left: 0;
+}
+
+@keyframes acidRight {
+    0% {
+        opacity: 1;
+        transform: translate(var(--x2-start), var(--y2-start));
+    }
+    100% {
+        opacity: 1;
+        transform: translate(var(--x2-end), var(--y2-end));
+    }
+}
+
+
+/* water */
+.water-up-left-img {
+    position: absolute;
+    width: 25px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1500;
+    top: 0;   /* Required for correct origin */
+    left: 0;
+    transform: translate(0,0);
+}
+
+/* diagonal up-left animation */
+@keyframes waterUpLeft {
+    0% {
+        opacity: 1;
+        transform: translate(var(--wx-start), var(--wy-start));
+    }
+    100% {
+        opacity: 1;
+        transform: translate(var(--wx-end), var(--wy-end));
+    }
+}
+/* ammonia */
+.ammonia-move-img {
+    position: absolute;
+    width: 25px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1600;
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
+}
+
+@keyframes ammoniaFly {
+    0% {
+        opacity: 1;
+        transform: translate(var(--ax-start), var(--ay-start));
+    }
+    100% {
+        opacity: 1;
+        transform: translate(var(--ax-end), var(--ay-end));
+    }
+}
+
+
+/* Adjust Heating Setup Flask Images */
+#heatingSetup {
+    position: relative;
+}
+
+#heatingSetup .flask-stage {
+    width: 50vh;  
+    margin: 0px;
+    padding-left:10vh;       /* 🔹 Reduce size */
+    height: auto;
+    margin-top: 25px;    /* 🔹 Moves image a bit downward */
+    transform: translateY(15px); /* Alternative smooth downward shift */
+}
+
+/* magnetic beed */
+.bead-fly-img {
+    position: absolute;
+    width: 30px;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+}
+
+.mag-bead-fly-img {
+    position: absolute;
+    width: 10px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+}
+
+@keyframes beadUpRight {
+    0% {
+        opacity: 1;
+        transform: translate(var(--bx-start), var(--by-start));
+    }
+    100% {
+        opacity: 1;
+        transform: translate(var(--bx-end), var(--by-end));
+    }
+}
+
+
+/* heatsetup right */
+
+.heat-move-img {
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2100;
+    top: 0;
+    left: 0;
+}
+
+/* Left → Right */
+@keyframes heatMoveRight {
+    0% {
+        opacity: 1;
+        transform: translate(var(--hx-start), var(--hy-start));
+    }
+    100% {
+        opacity: 1;
+        transform: translate(var(--hx-end), var(--hy-end));
+    }
+}
+
+
+
+
