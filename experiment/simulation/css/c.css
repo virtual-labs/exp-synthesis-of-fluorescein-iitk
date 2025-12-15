@@ -478,8 +478,8 @@ circle {
     position: relative;
     margin: 0;
     padding: 0;
-    height: 10vh;
-    width: 5vw;
+    height: 20vh;
+    width: 7vw;
     visibility: visible;
     transform: translate(56vw, -123vh);
 }
@@ -488,16 +488,18 @@ circle {
     transition: 0.1s;
 }
 .alfoilimg{
-    height: 10vh;
-    width: 5vw;
-        margin-top: 2vh;
-    margin-right: 1vw;
-    padding-right: 2vw;
+    height: 15vh;
+    width: 10vw;
+    /* margin-top: 2vh; */
+    /* margin-right: 1vw;
+    padding-right: 2vw; */
+    /* margin-bottom: 5vh; */
+    padding-bottom: 2vh;
     visibility: visible;
 }
 .alfoilimg:hover{
-    height: 11.1vh;
-    width: 6.1vw;
+    height: 16.1vh;
+    width: 11.1vw;
 }
 #hovalfoil{
     position: absolute;
@@ -617,4 +619,96 @@ body {
     color: var(--text);
    
     min-height: 100vh;
+}
+
+/* Container with YOUR SIZE + POSITION */
+#columnchromato {
+    position: absolute;
+    width: 9vw;
+    height: 12vh;
+    top: 20vh;
+    left: 31vw;
+    z-index: 3000;
+    display: inline-block;
+}
+
+/* Image inside */
+.columnChromato-item img {
+    width: 100%;         /* ⭐ fits inside 3vw width */
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Hover scale 1.1 ratio */
+.columnChromato-item:hover {
+    transform: scale(1.1);
+}
+
+/* Tooltip */
+.columnChromato-item .tooltip {
+    position: absolute;
+    bottom: 110%;            /* above image */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: white;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    white-space: nowrap;
+    transition: 0.3s ease;
+    z-index: 4000;
+}
+
+/* Show tooltip on hover */
+.columnChromato-item:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+/* GLOBAL TOOLTIP STYLE for ALL hover text */
+.tooltip, 
+.hovpc, 
+#hovspecto, 
+#hovpippete, 
+#hovflask, 
+#hovcuvette, 
+#hovbox1, 
+#hovbox2, 
+#hovbox3, 
+#hovbox4,
+#hovalfoil {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* ⭐ same clean font as column chromatography */
+    font-size: 1.2vw;
+    font-weight: 600;
+
+    background: #1e293b;      /* ⭐ same as column chromatography tooltip */
+    color: white;
+
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    border: 1px solid #3b4a5a;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 5000;
+}
+.pc:hover .hovpc,
+#spectrometer:hover #hovspecto,
+#pippete:hover #hovpippete,
+#conicalflask:hover #hovflask,
+#cuvette:hover #hovcuvette,
+#box1:hover #hovbox1,
+#box2:hover #hovbox2,
+#box3:hover #hovbox3,
+#box4:hover #hovbox4,
+#alfoil:hover #hovalfoil,
+.columnChromato-item:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
 }
