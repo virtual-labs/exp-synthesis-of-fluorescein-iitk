@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fluorescein Synthesis Lab</title>
-    <link rel="stylesheet" href="css\style copy.css" />
-    <link rel="stylesheet" href="css\extra.css" />
+    <link rel="stylesheet" href="style copy.css" />
+    <link rel="stylesheet" href="extra.css" />
   </head>
   <body>
     <div class="main">
@@ -96,36 +96,26 @@
                 class="extra-img hidden"
               />
 
-              <span class="tooltip small-tooltip">Round Conical Flask</span>
+              <span id="round-flas" class="tooltip small-tooltip"
+                >Round Conical Flask</span
+              >
             </div>
 
             <!-- Heating Setup -->
-            <div class="equipment heating-setup" id="heatingSetup">
-              <!-- STATIC FLASK IMAGES -->
+            <!-- Heating Setup -->
+            <div class="equipmen heating-setup" id="heatingSetup">
+              <!-- Single Flask Image -->
               <img
-                id="flaskImg1"
-                src="new fold\Empty stand.png"
+                id="flaskImg"
+                src="new fold/Empty stand.png"
                 class="flask-stage"
-              />
-              <img
-                id="flaskImg2"
-                src="new fold\green stand.png"
-                class="flask-stage hidden"
-              />
-              <img
-                id="flaskImg3"
-                src="new fold\yellow liqid.png"
-                class="flask-stage hidden"
-              />
-              <img
-                id="flaskImg4"
-                src="new fold\Empty stand.png"
-                class="flask-stage hidden"
+                alt="Heating Flask"
               />
 
-              <span class="tooltip"
-                >Heating Mantle with Round Bottom Flask</span
-              >
+              <!-- Tooltip (now controllable by JS) -->
+              <span id="flaskTooltip" class="tooltip">
+                Heating Mantle with Round Bottom Flask
+              </span>
             </div>
 
             <div class="brown-item">
@@ -142,15 +132,43 @@
                 src="new fold\beaker.png"
                 class="greenYellow-img"
               />
-              <span class="tooltip small-tooltip"
+              <span id="greenyel" class="tooltip small-tooltip"
                 >Green-Yellow Intermediate</span
               >
             </div>
 
+            <!-- transition fluro  -->
+            <img
+              id="columnTransitionImg"
+              class="column-transition hidden"
+              src="new fold\fluroshine.png"
+            />
+
+            <!-- Column Chromatography -->
+            <div class="columnChromato-item">
+              <img
+                id="columnChromatoImg"
+                src="new fold\flurocolumn (2).png"
+                class="columnChromato-img"
+                alt="Column Chromatography Setup"
+              />
+              <span class="tooltip small-tooltip"
+                >Column Chromatography Setup</span
+              >
+            </div>
+            <!-- Final Transition Image -->
+            <img
+              style="width: 70px; height: auto"
+              id="dropperMoveImg"
+              src="new fold/solid fluro.png"
+              class="dropper-move hidden"
+            />
+
             <!-- Dropper -->
             <div class="equipment dropper" id="dropper">
               <img
-                src="new fold\solid fluro.png"
+                id="dropperImg"
+                src="new fold/solid fluro.png"
                 class="dropper-img"
                 alt="Dropper"
               />
@@ -265,7 +283,7 @@
               <img
                 style="height: 40%"
                 class="chemical-img"
-                src="new fold/Untitled (8).png"
+                src="new fold\flurocolumn (2).png"
                 alt="Column Chromatography"
               />
               <div class="bottle-label">
@@ -289,6 +307,7 @@
             <div class="step" data-step="9"><span>9</span></div>
             <div class="step" data-step="10"><span>10</span></div>
             <div class="step" data-step="11"><span>11</span></div>
+            <div class="step" data-step="12"><span>12</span></div>
           </div>
 
           <div class="instruction-card">
@@ -297,6 +316,33 @@
               Click Start to begin the fluorescein synthesis experiment.
             </p>
             <div class="action-hint" id="actionHint"></div>
+          </div>
+          <div id="finalResultCard" class="match-card-style hidden">
+            <div class="result-layout">
+              <!-- LEFT IMAGE -->
+              <img
+                src="new fold\Screenshot 2025-12-13 014204.png"
+                class="result-graph-img"
+                alt="Absorption/Emission Graph"
+              />
+
+              <!-- RIGHT TEXT -->
+              <div class="result-text">
+                <h3>Fluorescein Synthesis Summary</h3>
+
+                <p><strong>Theoretical Yield:</strong> 1.122 g</p>
+                <p><strong>Actual Yield:</strong> 0.70 g</p>
+                <p><strong>Percent Yield:</strong> ~62%</p>
+
+                <p><strong>Absorption Max (λ<sub>max</sub>):</strong> 490 nm</p>
+                <p><strong>Emission Max:</strong> 521 nm</p>
+
+                <p class="small-note">
+                  The obtained absorption and emission values match the
+                  literature for fluorescein in ethanolic solution.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div class="controls">

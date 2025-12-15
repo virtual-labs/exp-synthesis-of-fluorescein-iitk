@@ -95,11 +95,14 @@ fluroscene */
 }
 
 .brown-img {
-    width: 70px;
+    width: 85px;           /* ⭐ Increased size (was 70px) */
     cursor: pointer;
     z-index: 3000;
     transition: transform 0.25s ease;
+    position: relative;
+    left: 10px;            /* ⭐ Move 10px to the right */
 }
+
 
 .brown-img:hover {
     transform: scale(1.1);
