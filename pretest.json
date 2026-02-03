@@ -1,0 +1,90 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "Fluorescein is a",
+      "answers": {
+        "a": "Known highly fluorescent molecule",
+        "b": "Known strong oxidizing agent",
+        "c": "Known strong reducing agent",
+        "d": "Known strong radical scavenger"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Fluorescein absorbs at 490 nm. The colour of fluorescein is",
+      "answers": {
+        "a": "grey ",
+        "b": "yellow",
+        "c": "blue",
+        "d": "colorless  "
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Sodium salt of fluorescein is commonly used in",
+      "answers": {
+        "a": "Ophthalmology ",
+        "b": "Dermatology",
+        "c": "Pathology",
+        "d": "Radiology"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The stable form of fluorescein in neutral medium is",
+      "answers": {
+        "a": "Quinoid form",
+        "b": "Quinoline form",
+        "c": "Lactoide form",
+        "d": "Furan form"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The stable form of fluorescein in basic medium is",
+      "answers": {
+        "a": "Quinoid form",
+        "b": "Quinoline form ",
+        "c": "Lactoide form",
+        "d": "Furan form"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}
