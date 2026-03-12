@@ -1,13 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	
+    <link rel="stylesheet" href="./css/c.css">
 </head>
 <body>
-		<!-- Your code goes here-->
+	<div class="main">
+		<div class="header">
+			<h1>
+			Synthesis of fluorescein and its spectroscopy
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+			</h1>
+		</div>
+		<div class="footer">
+			<div class="simulate" id="simulator">
+				<img id="lab" src="new fold\Table.png" alt="images">
+			</div>
+			<div id="work">
+				<div id="pc" class="pc">
+					<img id="pcimage" class="pcimage" src="new fold\Empty stand.png" alt="reflux stand">
+					<h1 id="h1pc" class="hovpc">set up of Heating mantle,magnetic stirre,Round-bottom flask</h1>
+				</div>
+		        <div id="columnchromato" class="columnChromato-item">
+    <img src="new fold\flurocolumn (2).png" alt="Column Chromatography Setup">
+    <span class="tooltip">Column Chromatography Setup</span>
+</div>
+
+
+				<div id="spectrometer">
+					<img id="spectoimg" src="new fold\beaker.png" alt="spectrophotometer">
+					<h1 id="hovspecto">Beaker</h1> 
+				</div>
+				<div id="pippete">
+					<img class="pippeteimg" src="new fold\dropper.png" alt="P">
+					<h1 id="hovpippete">Dropper</h1>
+				</div> 
+				<div id="conicalflask">
+					<img class="flaskimg" src="new fold\empty.png" alt="conicalflask">
+					<h1 id="hovflask">50 ml round bottom flask</h1>
+				</div>
+				<div id="cuvette">
+					<img class="cuvetteimg" src="new fold\beed.png" alt="cuvette">
+					<h1 id="hovcuvette">Magnetic bead</h1>
+				</div>
+				<div id="box1">
+					<img class="box1img" src="new fold\res.png" alt="box1">
+					<h1 id="hovbox1">0.5g phthalic anhydride</h1>
+				</div>
+				<div id="box2">
+					<img class="box2img" src="new fold\resorcinol.png" alt="box2">
+					<h1 id="hovbox2">0.75 g of Resorcinol</h1>
+				</div>
+				<div id="box3">
+					<img class="box3img" src="new fold\h2so4.png" alt="box3">
+					<h1 id="hovbox3">Conc. H<sub>2</sub>SO<sub>4</sub></h1>
+				</div>
+				<div id="box4">
+					<img class="box4img" src="new fold\distilled water.png" alt="box4">
+					<h1 id="hovbox4"> Distilled water</h1>
+				</div>
+				<div id="alfoil">
+					<img class="alfoilimg" src="new fold\ammonia.png" alt="alfoil">
+					<h1 id="hovalfoil">Ammonia solution (5ml)</h1>
+				</div>
+			</div>
+			<div id="message">
+				<h1 id="ins">Instructions</h1>
+				<h1 id="text">
+					Make yourself familiar with the instruments by hovering over them, then click on start button to start the experiment.
+				</h1>	
+				<button id="start"  class="btn btn-success "><a href="p2.html">Start</button>
+					
+			</div>
+		</div>
+		
+	</div>
+	
+    <script src="Jsnew\index.js"></script>
 </body>
 </html>
